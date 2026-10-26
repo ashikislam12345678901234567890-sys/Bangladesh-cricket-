@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangladesh Cricket League</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#18263c;--text:#f3f6fb;--muted:#a9b6c9;--green:#27c783;--line:#26364d;--gold:#ffc857}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.5}
+header{background:#101b2c;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.wrap{max-width:1120px;margin:auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}.logo{width:42px;height:42px;border-radius:12px;background:var(--green);color:#062016;display:grid;place-items:center;font-weight:900}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding-bottom:12px}
+nav button,.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:9px;padding:9px 12px;cursor:pointer}
+nav button.active, .btn.primary{background:var(--green);color:#052014;border-color:var(--green);font-weight:700}
+main{padding:22px 0 42px}.hero{padding:26px;border-radius:18px;background:linear-gradient(120deg,#163c37,#172640 65%,#2a2443);border:1px solid #2b4d53;margin-bottom:18px}
+.eyebrow{color:var(--green);font-weight:700;font-size:12px;letter-spacing:1.2px}.hero h1{font-size:clamp(27px,5vw,42px);line-height:1.15;margin:8px 0}.hero p{color:#d1dbe8;max-width:680px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 22px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.stat small,.muted{color:var(--muted)}.stat strong{display:block;font-size:23px;margin-top:3px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 12px}.section-head h2{margin:0;font-size:21px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.match{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.matchtop{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}.tag{background:#20382f;color:#7df0b8;border-radius:20px;padding:3px 8px;font-size:11px;font-weight:700}
+.teamscore{display:flex;justify-content:space-between;align-items:center;margin:14px 0}.team{font-weight:700}.score{font-size:20px;font-weight:800}.score small{font-size:12px;color:var(--muted);font-weight:400}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}td:first-child,th:first-child{text-align:center;width:42px}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:6px}
+.teamgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.teamcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.teamicon{width:42px;height:42px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:21px;margin-bottom:10px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}input,select{width:100%;padding:11px;border-radius:9px;border:1px solid var(--line);background:#0c1626;color:var(--text)}.notice{background:#2c2718;border:1px solid #5e4c22;color:#f8df9c;padding:12px;border-radius:10px;font-size:13px;margin-top:14px}
+.page{display:none}.page.active{display:block}.empty{color:var(--muted);padding:20px;text-align:center}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.teamgrid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}.top{align-items:flex-start}.brand{font-size:15px}.hero{padding:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="top"><div class="brand"><div class="logo">BCL</div><div>Bangladesh Cricket League<div class="muted" style="font-size:11px;font-weight:400">T10 • Season 01</div></div></div><span class="tag">DEMO WEBSITE</span></div>
+ <nav id="nav">
+  <button class="active" data-page="home">হোম</button><button data-page="scores">লাইভ স্কোর</button><button data-page="fixtures">ম্যাচ সূচি</button><button data-page="points">পয়েন্ট টেবিল</button><button data-page="teams">দলসমূহ</button><button data-page="admin">স্কোর আপডেট</button>
+ </nav>
+</div></header>
+<main class="wrap">
+<section class="page active" id="home">
+ <div class="hero"><div class="eyebrow">WELCOME TO BCL</div><h1>ক্রিকেটের উত্তেজনা,<br>এক জায়গায়।</h1><p>Bangladesh Cricket League-এর ম্যাচের সূচি, স্কোর, দল ও টুর্নামেন্টের ফলাফল এখানে দেখুন। এটি একটি প্রাথমিক ডেমো ওয়েবসাইট।</p><button class="btn primary" onclick="showPage('scores')">স্কোর দেখুন</button> <button class="btn" onclick="showPage('fixtures')">ম্যাচের সূচি</button></div>
+ <div class="stats"><div class="stat"><small>অংশগ্রহণকারী দল</small><strong>৮</strong></div><div class="stat"><small>ফরম্যাট</small><strong>T10</strong></div><div class="stat"><small>পরিকল্পিত ম্যাচ</small><strong>১৫</strong></div><div class="stat"><small>মৌসুম</small><strong>০১</strong></div></div>
+ <div class="section-head"><h2>সর্বশেষ / ডেমো স্কোর</h2><button class="btn" onclick="showPage('scores')">সব দেখুন →</button></div><div id="homeMatches" class="grid"></div>
+ <div class="notice">নোট: এখানে দেখানো ম্যাচ ও স্কোর নমুনা ডেটা। বাস্তব ম্যাচের তথ্য দিয়ে আপডেট করুন।</div>
+</section>
+<section class="page" id="scores"><div class="section-head"><h2>লাইভ স্কোর</h2><span class="muted">ম্যানুয়াল ডেমো</span></div><div id="scoreMatches" class="grid"></div><div class="notice">এটি সত্যিকারের স্বয়ংক্রিয় লাইভ স্কোর ফিড নয়। মাঠের স্কোরারকে “স্কোর আপডেট” পেজ থেকে তথ্য দিতে হবে।</div></section>
+<section class="page" id="fixtures"><div class="section-head"><h2>ম্যাচের সূচি</h2><span class="muted">নমুনা ফিক্সচার</span></div><div class="tablewrap"><table><thead><tr><th>#</th><th>ম্যাচ</th><th>তারিখ</th><th>ভেন্যু</th><th>অবস্থা</th></tr></thead><tbody id="fixtureRows"></tbody></table></div></section>
+<section class="page" id="points"><div class="section-head"><h2>পয়েন্ট টেবিল</h2><span class="muted">নমুনা হিসাব</span></div><div class="tablewrap"><table><thead><tr><th>#</th><th>দল</th><th>ম্যাচ</th><th>জয়</th><th>হার</th><th>পয়েন্ট</th></tr></thead><tbody id="pointRows"></tbody></table></div></section>
+<section class="page" id="teams"><div class="section-head"><h2>অংশগ্রহণকারী দল</h2></div><div id="teamGrid" class="teamgrid"></div></section>
+<section class="page" id="admin"><div class="section-head"><h2>স্কোর আপডেট প্যানেল</h2></div><div class="panel"><p class="muted">এখানে স্কোর পরিবর্তন করলে এই ব্রাউজারের ডেমো পেজে দেখা যাবে। এটি নিরাপদ লগইন বা অনলাইন ডেটাবেস নয়।</p>
+ <div class="formgrid"><div><label for="matchSelect">ম্যাচ বেছে নিন</label><select id="matchSelect"></select></div><div><label for="statusSelect">ম্যাচের অবস্থা</label><select id="statusSelect"><option>আসন্ন</option><option>চলমান</option><option>শেষ</option></select></div><div><label for="scoreA">প্রথম দলের স্কোর (যেমন ৮৫/৩)</label><input id="scoreA" placeholder="85/3"></div><div><label for="oversA">ওভার (যেমন ৮.২)</label><input id="oversA" placeholder="8.2"></div><div><label for="scoreB">দ্বিতীয় দলের স্কোর (যেমন ৭২/৫)</label><input id="scoreB" placeholder="72/5"></div><div><label for="oversB">ওভার (যেমন ১০.০)</label><input id="oversB" placeholder="10.0"></div><div style="grid-column:1/-1"><label for="resultText">ফলাফল / আপডেট বার্তা</label><input id="resultText" placeholder="যেমন: Team A ১৩ রানে জয়ী"></div></div><p><button class="btn primary" id="saveScore">স্কোর সংরক্ষণ করুন</button> <button class="btn" id="resetDemo">ডেমো রিসেট</button></p><div id="saveMessage" class="muted"></div></div>
+ <div class="notice">গুরুত্বপূর্ণ: এই এক-ফাইল ডেমোতে তথ্য শুধু একই ব্রাউজারের বর্তমান সেশনে থাকে। একাধিক ফোন/কম্পিউটারে একসঙ্গে স্কোর দেখাতে হলে সার্ভার, ডেটাবেস এবং অনুমোদিত অ্যাডমিন লগইন তৈরি করতে হবে।</div>
+</section>
+</main>
+<footer><div class="wrap">© Bangladesh Cricket League • Independent community cricket project • এই ডেমো কোনো বেটিং সেবা নয়।</div></footer>
+<script>
+const originalMatches=[
+{id:1,a:"Rajshahi Riders",b:"Dhaka Strikers",date:"2026-11-05",venue:"BCL Cricket Ground",status:"চলমান",sa:"68/2",oa:"7.1",sb:"—",ob:"—",result:"লাইভ ডেমো"},
+{id:2,a:"Rangpur Tigers",b:"Chattogram Kings",date:"2026-11-05",venue:"BCL Cricket Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:3,a:"Sylhet Stars",b:"Khulna Warriors",date:"2026-11-06",venue:"City Sports Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:4,a:"Barishal Bulls",b:"Mymensingh XI",date:"2026-11-06",venue:"City Sports Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:5,a:"Rajshahi Riders",b:"Rangpur Tigers",date:"2026-11-07",venue:"BCL Cricket Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:6,a:"Dhaka Strikers",b:"Sylhet Stars",date:"2026-11-07",venue:"BCL Cricket Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:7,a:"Chattogram Kings",b:"Barishal Bulls",date:"2026-11-08",venue:"City Sports Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""},
+{id:8,a:"Khulna Warriors",b:"Mymensingh XI",date:"2026-11-08",venue:"City Sports Ground",status:"আসন্ন",sa:"—",oa:"—",sb:"—",ob:"—",result:""}
+];
+let matches=JSON.parse(JSON.stringify(originalMatches));
+const teams=["Rajshahi Riders","Dhaka Strikers","Rangpur Tigers","Chattogram Kings","Sylhet Stars","Khulna Warriors","Barishal Bulls","Mymensingh XI"];
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function matchCard(m){return `<article class="match"><div class="matchtop"><span>${esc(m.date)} • Match ${m.id}</span><span class="tag">${esc(m.status)}</span></div><div class="teamscore"><div><div class="team">${esc(m.a)}</div><div class="muted">Over ${esc(m.oa)}</div></div><div class="score">${esc(m.sa)}</div></div><div class="teamscore"><div><div class="team">${esc(m.b)}</div><div class="muted">Over ${esc(m.ob)}</div></div><div class="score">${esc(m.sb)}</div></div><div class="muted">${esc(m.result||m.venue)}</div></article>`}
+function render(){
+ document.getElementById("homeMatches").innerHTML=matches.slice(0,3).map(matchCard).join("");
+ document.getElementById("scoreMatches").innerHTML=matches.map(matchCard).join("");
+ document.getElementById("fixtureRows").innerHTML=matches.map(m=>`<tr><td>${m.id}</td><td><strong>${esc(m.a)}</strong> vs <strong>${esc(m.b)}</strong></td><td>${esc(m.date)}</td><td>${esc(m.venue)}</td><td>${esc(m.status)}</td></tr>`).join("");
+ document.getElementById("teamGrid").innerHTML=teams.map((t,i)=>`<div class="teamcard"><div class="teamicon">🏏</div><strong>${esc(t)}</strong><div class="muted">Team ${String(i+1).padStart(2,"0")}</div></div>`).join("");
+ document.getElementById("pointRows").innerHTML=teams.map((t,i)=>({t,i,p:0,w:0,l:0,played:0})).map(x=>`<tr><td>${x.i+1}</td><td>${esc(x.t)}</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>`).join("");
+ document.getElementById("matchSelect").innerHTML=matches.map(m=>`<option value="${m.id}">Match ${m.id}: ${esc(m.a)} vs ${esc(m.b)}</option>`).join("");
+}
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));window.scrollTo({top:0,behavior:"smooth"});}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.getElementById("saveScore").addEventListener("click",()=>{
+ const id=Number(document.getElementById("matchSelect").value),m=matches.find(x=>x.id===id);if(!m)return;
+ m.status=document.getElementById("statusSelect").value;
+ const a=document.getElementById("scoreA").value.trim(),oa=document.getElementById("oversA").value.trim(),b=document.getElementById("scoreB").value.trim(),ob=document.getElementById("oversB").value.trim(),r=document.getElementById("resultText").value.trim();
+ if(a)m.sa=a;if(oa)m.oa=oa;if(b)m.sb=b;if(ob)m.ob=ob;if(r)m.result=r;
+ render();document.getElementById("saveMessage").textContent="এই ব্রাউজারের ডেমো পেজে স্কোর আপডেট হয়েছে।";
+});
+document.getElementById("resetDemo").addEventListener("click",()=>{matches=JSON.parse(JSON.stringify(originalMatches));render();document.getElementById("saveMessage").textContent="ডেমো ডেটা রিসেট করা হয়েছে।";});
+render();
+</script>
+</body>
+</html>
